@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Soft pink outer background matching the logo's outer tone -->
+  <circle cx="50" cy="50" r="50" fill="#F3D1D1" />
+  <!-- Clean white inner circle badge -->
+  <circle cx="50" cy="50" r="42" fill="#FFFFFF" />
+  
+  <!-- High fidelity Vector Butterfly matching Bodytech Paraná's brand identity -->
+  <g transform="translate(32, 28) scale(1.6)" fill="#8A4A4A">
+    <!-- Antennae -->
+    <path d="M6,6.2 C5,5.1 4,4.2 3.5,4 C3.8,4.5 4.5,5.5 5,6 Z" opacity="0.8" />
+    <path d="M6.5,6 C5.5,4.8 4.6,3.8 4.2,3.5 C4.5,4 5.2,5 5.6,5.8 Z" opacity="0.8" />
+    <!-- Body -->
+    <path d="M6.8,6.5 C6.6,7.5 5.8,11.5 6.2,12.5 C6.6,13.2 7,13.5 7.2,12.8 C7.4,12.1 7.2,7.5 7,6.5 Z" />
+    <!-- Big upper wing -->
+    <path d="M7.1,7.2 C8.5,5.8 12.5,4.2 14,6.2 C15.5,8.2 13.5,10.2 7.4,9.5 Z" />
+    <!-- Small lower wing -->
+    <path d="M7.2,9.8 C8.8,9.5 12.8,9.8 13.2,11.2 C13.6,12.6 11,13.2 7.3,11.8 Z" />
+  </g>
+</svg>
