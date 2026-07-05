@@ -101,8 +101,7 @@ export default function App() {
               href="https://wa.me/5493434043513" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="btn btn-primary"
-              style={{ padding: '10px 20px', fontSize: '0.75rem' }}
+              className="btn btn-primary header-cta-btn"
             >
               Agendar Turno
             </a>
