@@ -146,9 +146,10 @@ export default function App() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-content">
+              <span className="hero-brand-tag-new">Bodytech</span>
               <h1 className="hero-title">
                 Tu piel suave <br />
-                y luminosa <span className="section-accent-font" style={{ display: 'inline', marginLeft: '10px' }}>Bodytech</span>
+                y luminosa
               </h1>
               <p className="hero-subtitle">
                 Brindamos un servicio de excelencia, con operadoras certificadas y con amplia experiencia. Utilizamos tecnología de triple longitud de onda, con equipamiento original y de lo más avanzado en el mercado de la tecnología láser.

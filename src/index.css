@@ -229,6 +229,16 @@ section {
   font-weight: 600;
 }
 
+.hero-brand-tag-new {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
 .section-title {
   font-size: 2.5rem;
   line-height: 1.2;
@@ -909,5 +919,11 @@ footer {
 
   .card {
     padding: 25px 20px; /* Sane paddings for smaller mobile grids */
+  }
+
+  .hero-brand-tag-new {
+    text-align: center;
+    font-size: 1.35rem;
+    margin-bottom: 8px;
   }
 }
