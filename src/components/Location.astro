@@ -2,35 +2,35 @@
 import { siteConfig } from "../config/site";
 ---
 
-<section id="sedes" class="py-24 sm:py-32 bg-stone-950 border-t border-stone-800/80">
+<section id="sedes" class="py-24 sm:py-32 bg-[#FCF9F6] border-t border-[#B77D7D]/15">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
       
       {/* Sedes Físicas */}
       <div class="lg:col-span-6 space-y-6">
-        <h2 class="font-title text-3xl sm:text-4xl font-bold text-white">
+        <h2 class="font-title text-3xl sm:text-4xl font-bold text-[#3C3535]">
           Nuestras Sedes en Paraná
         </h2>
-        <p class="text-stone-400 text-sm">
+        <p class="text-[#6e6464] text-sm">
           Elegí la sede que te quede más cómoda y reservá tu lugar con anticipación:
         </p>
 
         <div class="space-y-4 pt-2">
           {siteConfig.sedes.map((sede) => (
-            <div class="bg-stone-900/80 border border-stone-800 rounded-2xl p-5 flex items-start gap-4">
+            <div class="bg-white border border-[#B77D7D]/15 rounded-2xl p-5 flex items-start gap-4 shadow-sm">
               <div class="w-10 h-10 rounded-xl bg-[#B77D7D]/15 text-[#B77D7D] flex items-center justify-center shrink-0 mt-0.5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div class="flex-1">
-                <h3 class="font-title text-lg font-bold text-white">{sede.name}</h3>
-                <p class="text-stone-300 text-xs mt-1">{sede.address}</p>
+                <h3 class="font-title text-lg font-bold text-[#3C3535]">{sede.name}</h3>
+                <p class="text-[#6e6464] text-xs mt-1">{sede.address}</p>
                 {sede.instagram && (
-                  <a href={sede.instagram} target="_blank" rel="noopener noreferrer" class="text-xs text-[#B77D7D] hover:underline mt-1 block">
+                  <a href={sede.instagram} target="_blank" rel="noopener noreferrer" class="text-xs text-[#B77D7D] hover:underline mt-1 block font-medium">
                     {sede.note}
                   </a>
                 )}
                 {!sede.instagram && (
-                  <span class="text-xs text-stone-400 mt-1 block">{sede.note}</span>
+                  <span class="text-xs text-[#6e6464] mt-1 block">{sede.note}</span>
                 )}
               </div>
             </div>
@@ -39,7 +39,7 @@ import { siteConfig } from "../config/site";
       </div>
 
       {/* Mapa Embed Interactivo */}
-      <div class="lg:col-span-6 h-[380px] rounded-3xl overflow-hidden border border-stone-800 shadow-2xl">
+      <div class="lg:col-span-6 h-[380px] rounded-3xl overflow-hidden border border-[#B77D7D]/20 shadow-lg">
         <iframe
           src={`https://www.google.com/maps?q=${siteConfig.address.latitude},${siteConfig.address.longitude}&z=15&output=embed`}
           width="100%"

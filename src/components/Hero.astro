@@ -3,10 +3,7 @@ import { siteConfig } from "../config/site";
 const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNumber}&text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
 ---
 
-<section id="inicio" class="relative text-white min-h-[85vh] flex items-center justify-center overflow-hidden pt-28 pb-16">
-  {/* Fondo degradado suave */}
-  <div class="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-stone-950 to-stone-950 pointer-events-none"></div>
-
+<section id="inicio" class="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-28 pb-16 bg-[#FCF9F6]">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center space-y-6">
     
     {/* Marca superior destacada con tipografía de logo */}
@@ -14,12 +11,12 @@ const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNu
       Bodytech
     </span>
 
-    <h1 class="font-title text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-stone-100">
+    <h1 class="font-title text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-[#3C3535]">
       Tu piel suave <br />
-      <span class="text-stone-300 italic font-normal">y luminosa</span>
+      <span class="text-[#6e6464] italic font-normal">y luminosa</span>
     </h1>
 
-    <p class="text-sm sm:text-base md:text-lg text-stone-300/90 leading-relaxed max-w-2xl mx-auto font-normal">
+    <p class="text-sm sm:text-base md:text-lg text-[#6e6464] leading-relaxed max-w-2xl mx-auto font-normal">
       {siteConfig.description}
     </p>
 
@@ -29,21 +26,21 @@ const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNu
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="bg-[#B77D7D] hover:bg-[#a36969] text-white font-bold text-sm px-8 py-4 rounded-full flex items-center gap-2 shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all no-underline"
+        class="bg-[#B77D7D] hover:bg-[#a36969] text-white font-bold text-sm px-8 py-4 rounded-full flex items-center gap-2 shadow-lg shadow-[#B77D7D]/25 hover:scale-[1.03] active:scale-[0.98] transition-all no-underline"
       >
         Quiero reservar mi turno
       </a>
 
       <a
         href="#tecnologia"
-        class="bg-stone-900/80 hover:bg-stone-800 text-stone-200 border border-stone-700/60 font-semibold text-sm px-8 py-4 rounded-full flex items-center gap-2 transition-all no-underline hover:border-stone-500"
+        class="bg-white hover:bg-[#F4ECE7] text-[#3C3535] border border-[#B77D7D]/30 font-semibold text-sm px-8 py-4 rounded-full flex items-center gap-2 transition-all no-underline hover:border-[#B77D7D] shadow-xs"
       >
         Ver Tecnología
       </a>
     </div>
 
     {/* Badge de Tecnología Indolora */}
-    <div class="pt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-stone-900/80 border border-stone-800 text-xs text-stone-300">
+    <div class="pt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#B77D7D]/20 text-xs text-[#6e6464] shadow-xs">
       <span class="w-2 h-2 rounded-full bg-[#B77D7D]"></span>
       Tecnología Crystal 3D original · Enfriamiento Continuo
     </div>

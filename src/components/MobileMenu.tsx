@@ -14,7 +14,7 @@ export default function MobileMenu({ links, whatsappUrl, accentColor }: MobileMe
     <>
       <button
         aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
-        className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-stone-300 hover:text-white transition-colors cursor-pointer"
+        className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-[#3C3535] hover:text-[#B77D7D] transition-colors cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? (
@@ -31,27 +31,27 @@ export default function MobileMenu({ links, whatsappUrl, accentColor }: MobileMe
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.97 }}
             transition={{ duration: 0.18 }}
-            className="fixed top-16 left-4 right-4 bg-stone-900 border border-stone-800 rounded-2xl p-5 shadow-2xl backdrop-blur-2xl flex flex-col gap-2.5 z-50"
+            className="fixed top-16 left-4 right-4 bg-[#FCF9F6] border border-[#B77D7D]/20 rounded-2xl p-5 shadow-2xl backdrop-blur-2xl flex flex-col gap-2.5 z-50"
           >
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-stone-300 hover:text-white text-sm font-semibold p-2.5 hover:bg-stone-800/70 rounded-xl transition-all no-underline block"
+                className="text-[#3C3535] hover:text-[#B77D7D] text-sm font-semibold p-2.5 hover:bg-[#F4ECE7] rounded-xl transition-all no-underline block"
               >
                 {link.label}
               </a>
             ))}
 
-            <hr className="border-stone-800 my-1" />
+            <hr className="border-[#B77D7D]/15 my-1" />
 
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 no-underline shadow-lg"
+              className="text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 no-underline shadow-md"
               style={{ backgroundColor: accentColor }}
             >
               Pedir Turno por WhatsApp

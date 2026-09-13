@@ -20,7 +20,7 @@ const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNu
 >
   <div
     id="navbar-inner"
-    class="max-w-6xl mx-auto flex items-center justify-between border-b border-stone-800/80 bg-stone-950/85 backdrop-blur-md px-6 py-3.5 md:rounded-full md:border md:border-stone-800/60 md:px-6 md:py-2.5 transition-all duration-300"
+    class="max-w-6xl mx-auto flex items-center justify-between border-b border-[#B77D7D]/15 bg-[#FCF9F6]/90 backdrop-blur-md px-6 py-3.5 md:rounded-full md:border md:border-[#B77D7D]/20 md:px-6 md:py-2.5 transition-all duration-300 md:shadow-[0_10px_30px_rgba(197,139,139,0.08)]"
   >
     {/* Logotipo Oficial con Mariposa Vectorial */}
     <a href="#inicio" class="flex items-center gap-2.5 select-none no-underline">
@@ -31,7 +31,7 @@ const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNu
         <path d="M7.1,7.2 C8.5,5.8 12.5,4.2 14,6.2 C15.5,8.2 13.5,10.2 7.4,9.5 Z" />
         <path d="M7.2,9.8 C8.8,9.5 12.8,9.8 13.2,11.2 C13.6,12.6 11,13.2 7.3,11.8 Z" />
       </svg>
-      <span class="font-title text-xl font-bold tracking-tight text-white flex items-center">
+      <span class="font-title text-xl font-bold tracking-tight text-[#3C3535] flex items-center">
         Bodytech
         <span class="font-sub font-light text-xs ml-1.5 text-[#B77D7D]">Paraná</span>
       </span>
@@ -39,11 +39,11 @@ const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNu
 
     {/* Navegación Desktop */}
     <div class="hidden md:flex items-center gap-1">
-      <div class="flex items-center gap-1 bg-stone-900/60 border border-stone-800/50 p-1 rounded-full">
+      <div class="flex items-center gap-1 bg-white/80 border border-[#B77D7D]/15 p-1 rounded-full shadow-xs">
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="px-3.5 py-1.5 text-xs font-semibold rounded-full text-stone-300 hover:text-white hover:bg-stone-800/60 transition-all duration-200 no-underline whitespace-nowrap"
+            class="px-3.5 py-1.5 text-xs font-semibold rounded-full text-[#6e6464] hover:text-[#3C3535] hover:bg-[#B77D7D]/10 transition-all duration-200 no-underline whitespace-nowrap"
           >
             {link.label}
           </a>
@@ -84,11 +84,11 @@ const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNu
       if (scrolled) {
         navbar.classList.add("md:py-2.5");
         navbar.classList.remove("md:py-4");
-        inner.classList.add("md:bg-stone-950/95", "md:shadow-[0_8px_30px_rgb(0,0,0,0.5)]");
+        inner.classList.add("md:bg-[#FCF9F6]/95", "md:shadow-[0_10px_35px_rgba(197,139,139,0.15)]");
       } else {
         navbar.classList.remove("md:py-2.5");
         navbar.classList.add("md:py-4");
-        inner.classList.remove("md:bg-stone-950/95", "md:shadow-[0_8px_30px_rgb(0,0,0,0.5)]");
+        inner.classList.remove("md:bg-[#FCF9F6]/95", "md:shadow-[0_10px_35px_rgba(197,139,139,0.15)]");
       }
     });
   }

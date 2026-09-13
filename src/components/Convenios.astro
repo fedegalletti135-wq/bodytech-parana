@@ -4,12 +4,12 @@ const doubledConvenios = [...siteConfig.convenios, ...siteConfig.convenios];
 const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNumber}&text=${encodeURIComponent("Hola Bodytech! Quiero validar mi descuento de convenio")}`;
 ---
 
-<section id="convenios" class="py-20 sm:py-28 bg-stone-900/30 border-t border-stone-800/80 overflow-hidden">
+<section id="convenios" class="py-20 sm:py-28 bg-[#F4ECE7] border-t border-[#B77D7D]/15 overflow-hidden">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 mb-12 text-center space-y-3">
-    <h2 class="font-title text-3xl sm:text-4xl font-bold text-white">
+    <h2 class="font-title text-3xl sm:text-4xl font-bold text-[#3C3535]">
       Beneficios Exclusivos
     </h2>
-    <p class="text-stone-400 text-sm max-w-2xl mx-auto">
+    <p class="text-[#6e6464] text-sm max-w-2xl mx-auto">
       Desliza para ver si sos usuario/cliente de alguna de estas empresas y accede a beneficios exclusivos en tus tratamientos. El descuento aplica a todas las sesiones a las que asistas.
     </p>
   </div>
@@ -18,15 +18,15 @@ const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNu
   <div class="relative w-full overflow-hidden py-4">
     <div class="animate-carousel flex gap-4">
       {doubledConvenios.map((item) => (
-        <div class="w-[260px] bg-stone-900 border border-stone-800 rounded-2xl p-5 flex flex-col justify-between shrink-0 shadow-lg">
+        <div class="w-[260px] bg-white border border-[#B77D7D]/15 rounded-2xl p-5 flex flex-col justify-between shrink-0 shadow-md">
           <div>
-            <span class="inline-block text-xs font-black px-2.5 py-1 rounded-md bg-[#B77D7D]/20 text-[#B77D7D] mb-3">
+            <span class="inline-block text-xs font-black px-2.5 py-1 rounded-md bg-[#B77D7D]/15 text-[#B77D7D] mb-3">
               {item.discount}
             </span>
-            <h3 class="font-title text-base font-bold text-white mb-1">
+            <h3 class="font-title text-base font-bold text-[#3C3535] mb-1">
               {item.name}
             </h3>
-            <p class="text-stone-400 text-xs">
+            <p class="text-[#6e6464] text-xs">
               {item.type}
             </p>
           </div>
@@ -36,7 +36,7 @@ const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNu
   </div>
 
   <div class="text-center mt-10">
-    <p class="text-stone-400 text-xs italic mb-4">
+    <p class="text-[#6e6464] text-xs italic mb-4">
       Aprovechá tu beneficio la próxima jornada.
     </p>
     <a

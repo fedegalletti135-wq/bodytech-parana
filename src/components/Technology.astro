@@ -8,28 +8,28 @@ const iconMap: Record<string, string> = {
 };
 ---
 
-<section id="tecnologia" class="py-24 sm:py-32 bg-stone-900/50 border-y border-stone-800/80">
+<section id="tecnologia" class="py-24 sm:py-32 bg-[#F4ECE7] border-y border-[#B77D7D]/15">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="text-center mb-16 space-y-3">
-      <h2 class="font-title text-3xl sm:text-5xl font-bold tracking-tight text-white">
+      <h2 class="font-title text-3xl sm:text-5xl font-bold tracking-tight text-[#3C3535]">
         El Equipo Más Avanzado
       </h2>
-      <p class="text-stone-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+      <p class="text-[#6e6464] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
         La marca de nuestro equipo es la más avanzada en tecnología estética a nivel global. Trabajamos con tecnología <strong>Body Health</strong> original, reconocida por su innovación y altos estándares de calidad.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {siteConfig.technology.map((item) => (
-        <div class="bg-stone-950/80 hover:bg-stone-900 border border-stone-800/80 hover:border-[#B77D7D]/40 rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between">
+        <div class="bg-white hover:bg-white border border-[#B77D7D]/15 hover:border-[#B77D7D]/40 rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between shadow-[0_10px_30px_rgba(197,139,139,0.08)]">
           <div>
             <div class="w-12 h-12 rounded-xl bg-[#B77D7D]/15 text-[#B77D7D] flex items-center justify-center mb-5">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={iconMap[item.icon]} />
             </div>
-            <h3 class="font-title text-xl font-bold text-white mb-3">
+            <h3 class="font-title text-xl font-bold text-[#3C3535] mb-3">
               {item.title}
             </h3>
-            <p class="text-stone-400 text-sm leading-relaxed">
+            <p class="text-[#6e6464] text-sm leading-relaxed">
               {item.description}
             </p>
           </div>

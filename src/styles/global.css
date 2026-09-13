@@ -2,9 +2,15 @@
 
 @layer base {
   :root {
-    --accent-color: #B77D7D;
-    --accent-color-hover: #a36969;
-    --accent-light: rgba(183, 125, 125, 0.08);
+    --color-primary: #B77D7D;
+    --color-primary-hover: #a36969;
+    --color-primary-light: #fbf5f5;
+    --color-background: #FCF9F6;
+    --color-text: #3C3535;
+    --color-text-muted: #6e6464;
+    --color-accent-bg: #F4ECE7;
+    --color-white: #ffffff;
+    
     --font-title: 'Playfair Display', serif;
     --font-sub: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -21,8 +27,8 @@
 
   body {
     font-family: var(--font-body);
-    background-color: #0c0a09;
-    color: #f5f5f4;
+    background-color: var(--color-background);
+    color: var(--color-text);
     overflow-x: hidden;
     max-width: 100%;
   }
@@ -58,15 +64,15 @@
   animation-play-state: paused;
 }
 
-/* Scrollbar suave y sutil */
+/* Scrollbar suave en tono rosa viejo */
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #1c1917;
+  background: #FCF9F6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #44403c;
+  background: #e2d1d1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
