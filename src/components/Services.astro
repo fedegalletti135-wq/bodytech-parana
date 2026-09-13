@@ -1,0 +1,60 @@
+---
+import { siteConfig } from "../config/site";
+const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNumber}&text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
+---
+
+<section id="servicios" class="py-24 sm:py-32 bg-stone-950">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-16 space-y-3">
+      <h2 class="font-title text-3xl sm:text-5xl font-bold tracking-tight text-white">
+        Tratamientos y Servicios
+      </h2>
+      <p class="text-stone-400 text-sm sm:text-base max-w-xl mx-auto">
+        Atención personalizada en Paraná con operadoras certificadas y seguimiento continuo.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {siteConfig.services.map((service) => (
+        <div class="bg-stone-900/60 border border-stone-800/80 hover:border-[#B77D7D]/50 rounded-2xl p-7 flex flex-col justify-between transition-all duration-300">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-semibold uppercase tracking-wider text-[#B77D7D]">
+                {service.tag}
+              </span>
+              <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-stone-800 text-stone-300">
+                {service.badge}
+              </span>
+            </div>
+
+            <h3 class="font-title text-2xl font-bold text-white mb-3">
+              {service.name}
+            </h3>
+            <p class="text-stone-400 text-sm leading-relaxed mb-6">
+              {service.description}
+            </p>
+
+            <ul class="space-y-2.5 text-xs text-stone-300 border-t border-stone-800/80 pt-5">
+              {service.details.map((detail) => (
+                <li class="flex items-center gap-2">
+                  <span class="text-[#B77D7D]">✓</span> {detail}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="pt-6 mt-6">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full bg-[#B77D7D]/15 hover:bg-[#B77D7D] text-[#B77D7D] hover:text-white border border-[#B77D7D]/40 text-center py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all block no-underline"
+            >
+              Consultar por WhatsApp
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

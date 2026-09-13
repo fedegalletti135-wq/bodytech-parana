@@ -1,0 +1,26 @@
+---
+import { siteConfig } from "../config/site";
+---
+
+<section class="py-20 sm:py-28 bg-stone-900/40 border-t border-stone-800/80">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <h2 class="font-title text-3xl sm:text-4xl font-bold text-white mb-8">
+      Horarios de Atención
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-md mx-auto">
+      {siteConfig.schedule.map((item) => (
+        <div class="bg-stone-950/80 border border-stone-800 rounded-2xl p-6 text-center">
+          <h3 class="font-sub font-bold text-sm text-stone-300">{item.days}</h3>
+          <p class="text-lg font-bold mt-2 text-[#B77D7D]">
+            {item.hours}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-stone-400 text-xs mt-6">
+      Atendemos en Paraná con previa reserva de turno.
+    </p>
+  </div>
+</section>

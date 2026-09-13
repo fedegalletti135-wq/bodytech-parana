@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --accent-color: #B77D7D;
+    --accent-color-hover: #a36969;
+    --accent-light: rgba(183, 125, 125, 0.08);
+    --font-title: 'Playfair Display', serif;
+    --font-sub: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    overflow-x: hidden;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #0c0a09;
+    color: #f5f5f4;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+}
+
+.font-title {
+  font-family: var(--font-title);
+}
+
+.font-sub {
+  font-family: var(--font-sub);
+}
+
+/* Animación fluida de carrusel continuo */
+@keyframes infiniteCarousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-carousel {
+  display: flex;
+  width: max-content;
+  animation: infiniteCarousel 32s linear infinite;
+}
+
+.animate-carousel:hover {
+  animation-play-state: paused;
+}
+
+/* Scrollbar suave y sutil */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #1c1917;
+}
+::-webkit-scrollbar-thumb {
+  background: #44403c;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B77D7D;
+}

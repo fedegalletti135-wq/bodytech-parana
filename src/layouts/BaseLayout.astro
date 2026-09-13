@@ -1,0 +1,115 @@
+---
+import { siteConfig } from "../config/site";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = `${siteConfig.businessName} | ${siteConfig.tagline}`,
+  description = siteConfig.seoDescription,
+  ogImage = siteConfig.images.ogImage,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).href;
+const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNumber}&text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
+
+// Schema.org optimizado para BeautySalon y HealthAndBeautyBusiness
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": ["BeautySalon", "HealthAndBeautyBusiness", "LocalBusiness"],
+  name: siteConfig.businessName,
+  description: siteConfig.seoDescription,
+  image: siteConfig.images.ogImage,
+  priceRange: "$$",
+  telephone: siteConfig.phone,
+  hasMap: siteConfig.address.googleMapsUrl,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.address.street,
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.province,
+    postalCode: siteConfig.address.postalCode,
+    addressCountry: siteConfig.address.country,
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: siteConfig.address.latitude,
+    longitude: siteConfig.address.longitude,
+  },
+  url: siteConfig.siteUrl,
+  openingHoursSpecification: siteConfig.openingHoursSchema.map((entry) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: entry.dayOfWeek,
+    opens: entry.opens,
+    closes: entry.closes,
+  })),
+  sameAs: [
+    siteConfig.social.instagram,
+    siteConfig.social.facebook,
+    siteConfig.social.instagramPranika,
+  ].filter(Boolean),
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {/* SEO Metas */}
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={siteConfig.keywords} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    {/* Google Fonts */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    {/* Open Graph / Facebook */}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content={siteConfig.businessName} />
+
+    {/* Twitter Cards */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {/* Schema.org Inyección */}
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    {/* Variable Dinámica de Acento */}
+    <style set:html={`:root { --accent-color: ${siteConfig.accentColor}; --accent-color-hover: ${siteConfig.accentColorHover}; }`} />
+  </head>
+
+  <body class="min-h-screen bg-stone-950 text-stone-100 selection:bg-[#B77D7D]/30 selection:text-white overflow-x-hidden">
+    <slot />
+
+    {/* Fallback Semántico */}
+    <noscript>
+      <div style="max-width: 800px; margin: 0 auto; padding: 24px; color: #d6d3d1;">
+        <h1>{siteConfig.businessName} - {siteConfig.tagline}</h1>
+        <p>{siteConfig.description}</p>
+        <p>Sedes: {siteConfig.sedes.map(s => `${s.name} (${s.address})`).join(' · ')}</p>
+        <p><a href={whatsappUrl}>Contactar por WhatsApp: {siteConfig.phone}</a></p>
+      </div>
+    </noscript>
+  </body>
+</html>
