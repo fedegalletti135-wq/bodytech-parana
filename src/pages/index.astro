@@ -1,28 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navbar from "../components/Navbar.astro";
-import Hero from "../components/Hero.astro";
-import Technology from "../components/Technology.astro";
-import Services from "../components/Services.astro";
-import Convenios from "../components/Convenios.astro";
-import About from "../components/About.astro";
-import Schedule from "../components/Schedule.astro";
-import Location from "../components/Location.astro";
-import WhatsAppButton from "../components/WhatsAppButton.astro";
-import Footer from "../components/Footer.astro";
+import BodytechApp from "../components/BodytechApp.tsx";
 ---
 
 <BaseLayout>
-  <Navbar />
-  <main id="main-content">
-    <Hero />
-    <Technology />
-    <Services />
-    <Convenios />
-    <About />
-    <Schedule />
-    <Location />
-  </main>
-  <Footer />
-  <WhatsAppButton />
+  <div id="root">
+    <BodytechApp client:load />
+  </div>
 </BaseLayout>
