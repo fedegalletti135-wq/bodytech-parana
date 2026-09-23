@@ -300,12 +300,14 @@ export default function BodytechApp() {
           </div>
 
           <div className="alquiler-grid">
-            <div className="alquiler-image-card">
-              <img 
-                src="/equipo_crystal3d.png" 
-                alt="Equipo original Crystal 3D Body Health disponible para alquiler en Paraná" 
-                className="alquiler-image" 
-              />
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
+              <div className="alquiler-circle-wrapper">
+                <img 
+                  src="/equipo_crystal3d.png" 
+                  alt="Equipo original Crystal 3D Body Health disponible para alquiler en Paraná" 
+                  className="alquiler-circle-image" 
+                />
+              </div>
               <div className="alquiler-badge">
                 <Sparkles size={18} style={{ color: 'var(--color-primary)' }} />
                 <span>Crystal 3D · Body Health Oficial</span>
@@ -597,7 +599,6 @@ export default function BodytechApp() {
         <div className="footer-copy">
           <p>© {new Date().getFullYear()} Bodytech Paraná. Todos los derechos reservados.</p>
           <p className="footer-credits">
-            Desarrollado con estética de alta gama para centros médicos y de bienestar.{' '}
             <a 
               href="https://viomo.com.ar" 
               target="_blank" 

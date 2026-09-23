@@ -556,47 +556,54 @@ section {
 /* Alquiler de Equipos Grid & Showcase */
 .alquiler-grid {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
+  grid-template-columns: 1fr 1.25fr;
   gap: 50px;
   align-items: center;
 }
 
-.alquiler-image-card {
+.alquiler-circle-wrapper {
   position: relative;
-  background: linear-gradient(145deg, #ffffff 0%, var(--color-accent-bg) 100%);
-  border-radius: var(--radius-lg);
-  padding: 40px 30px;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8px solid var(--color-white);
   box-shadow: var(--shadow-premium);
-  border: 1px solid rgba(197, 139, 139, 0.15);
+  background-color: var(--color-white);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-}
-
-.alquiler-image {
-  max-width: 290px;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 15px 25px rgba(183, 125, 125, 0.22));
   transition: var(--transition-smooth);
 }
 
-.alquiler-image-card:hover .alquiler-image {
-  transform: translateY(-8px) scale(1.03);
+.alquiler-circle-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 45px rgba(60, 53, 53, 0.14);
+}
+
+.alquiler-circle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.alquiler-circle-wrapper:hover .alquiler-circle-image {
+  transform: scale(1.04);
 }
 
 .alquiler-badge {
-  margin-top: 25px;
+  position: relative;
+  margin-top: -24px;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background-color: var(--color-white);
   padding: 10px 22px;
   border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-premium);
+  box-shadow: 0 10px 25px rgba(60, 53, 53, 0.12);
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--color-primary);
@@ -960,14 +967,9 @@ footer {
     gap: 40px;
   }
   
-  .alquiler-image-card {
-    max-width: 380px;
+  .alquiler-circle-wrapper {
+    max-width: 320px;
     margin: 0 auto;
-    padding: 30px 20px;
-  }
-  
-  .alquiler-image {
-    max-width: 240px;
   }
 
   .cards-grid {
