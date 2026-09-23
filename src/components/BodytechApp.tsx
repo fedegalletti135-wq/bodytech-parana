@@ -467,16 +467,7 @@ export default function BodytechApp() {
                 <MapPin className="sede-icon" />
                 <div>
                   <h4 className="sede-title">Sede Noreste</h4>
-                  <a 
-                    href="https://maps.google.com/?q=Soler+3026+Parana+Entre+Rios" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="sede-address"
-                    style={{ textDecoration: 'underline', color: 'inherit' }}
-                    title="Ver Sede Noreste en Google Maps"
-                  >
-                    Soler 3026, Paraná, Entre Ríos
-                  </a>
+                  <p className="sede-address">Soler 3026, Paraná, Entre Ríos</p>
                 </div>
               </div>
 
@@ -484,16 +475,7 @@ export default function BodytechApp() {
                 <MapPin className="sede-icon" />
                 <div>
                   <h4 className="sede-title">Sede Centro (Pránika)</h4>
-                  <a 
-                    href="https://maps.google.com/?q=España+257+Parana+Entre+Rios" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="sede-address"
-                    style={{ textDecoration: 'underline', color: 'inherit' }}
-                    title="Ver Sede Centro en Google Maps"
-                  >
-                    España 257, Paraná, Entre Ríos
-                  </a>
+                  <p className="sede-address">España 257, Paraná, Entre Ríos</p>
                   <a href="https://www.instagram.com/pranika_saludintegral/" target="_blank" rel="noopener noreferrer" className="sede-instagram">
                     @pranika_saludintegral
                   </a>
@@ -503,14 +485,8 @@ export default function BodytechApp() {
               <div className="sede-card">
                 <Clock className="sede-icon" />
                 <div>
-                  <h4 className="sede-title">Horarios y Atención</h4>
+                  <h4 className="sede-title">Horarios de Atención</h4>
                   <p className="sede-address" style={{ margin: 0 }}>Lunes a Sábado de 09:00 a 20:00 hs.</p>
-                  <a 
-                    href="tel:+5493434043513" 
-                    style={{ display: 'inline-block', marginTop: '6px', fontSize: '0.85rem', color: 'var(--color-primary)', fontWeight: 600, textDecoration: 'none' }}
-                  >
-                    Llamar al +54 9 343 404-3513
-                  </a>
                 </div>
               </div>
             </div>
