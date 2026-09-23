@@ -174,13 +174,13 @@ export default function BodytechApp() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-content">
-              <span className="hero-brand-tag-new">Bodytech · Paraná, Entre Ríos</span>
+              <span className="hero-brand-tag-new">Bodytech</span>
               <h1 className="hero-title">
-                Depilación Definitiva <br />
-                <span style={{ fontSize: '0.82em', fontWeight: 400, fontStyle: 'italic' }}>en Paraná con Crystal 3D</span>
+                Tu piel suave <br />
+                y luminosa
               </h1>
               <p className="hero-subtitle">
-                Centro de <strong>depilación definitiva en Paraná</strong> con tecnología original <strong>Crystal 3D de Body Health</strong>. Operadoras certificadas, triple longitud de onda y sistema de frío continuo para un tratamiento seguro, eficaz e indoloro en nuestras sedes de Paraná.
+                Brindamos un servicio de excelencia, con operadoras certificadas y con amplia experiencia. Utilizamos tecnología de triple longitud de onda, con equipamiento original y de lo más avanzado en el mercado de la tecnología láser.
               </p>
               
               <div className="hero-actions">
