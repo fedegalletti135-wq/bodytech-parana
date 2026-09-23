@@ -165,8 +165,8 @@ export default function BodytechApp() {
             <div className="hero-visual">
               <div className="hero-image-wrapper">
                 <img 
-                  src="/hero_skincare.png" 
-                  alt="Tratamiento de piel suave y saludable en Bodytech Paraná" 
+                  src="/hero_depilacion_piernas.png" 
+                  alt="Depilación láser en piernas con tecnología Crystal 3D en Bodytech Paraná" 
                   className="hero-image" 
                 />
               </div>
@@ -280,9 +280,10 @@ export default function BodytechApp() {
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <div className="rejuve-image-wrapper">
                 <img 
-                  src="/rejuve_skincare.png" 
-                  alt="Tratamiento de rejuvenecimiento cutáneo facial de alta gama" 
+                  src="/rejuvenecimiento_facial.png" 
+                  alt="Tratamiento de rejuvenecimiento cutáneo facial con antiparras protectoras en Bodytech Paraná" 
                   className="rejuve-image" 
+                  style={{ objectPosition: 'center 35%' }}
                 />
               </div>
             </div>
@@ -298,47 +299,68 @@ export default function BodytechApp() {
             <p>Ofrecemos el equipamiento Crystal 3D original de Body Health para centros de estética o profesionales independientes.</p>
           </div>
 
-          <div className="cards-grid">
-            <div className="card">
-              <div className="card-icon">
-                <Building size={28} />
+          <div className="alquiler-grid">
+            <div className="alquiler-image-card">
+              <img 
+                src="/equipo_crystal3d.png" 
+                alt="Equipo original Crystal 3D Body Health disponible para alquiler en Paraná" 
+                className="alquiler-image" 
+              />
+              <div className="alquiler-badge">
+                <Sparkles size={18} style={{ color: 'var(--color-primary)' }} />
+                <span>Crystal 3D · Body Health Oficial</span>
               </div>
-              <h3 className="card-title">Equipos de Máxima Calidad</h3>
-              <p className="card-text">
-                Acceso a tecnología profesional original de Body Health sin preocuparse por costos de mantenimiento o renovación.
-              </p>
             </div>
 
-            <div className="card">
-              <div className="card-icon">
-                <Clock size={28} />
+            <div className="alquiler-cards">
+              <div className="alquiler-card">
+                <div className="card-icon">
+                  <Building size={26} />
+                </div>
+                <div>
+                  <h3 className="card-title" style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Equipos de Máxima Calidad</h3>
+                  <p className="card-text" style={{ fontSize: '0.95rem', margin: 0 }}>
+                    Acceso a tecnología profesional original de Body Health sin preocuparse por costos de mantenimiento o renovación.
+                  </p>
+                </div>
               </div>
-              <h3 className="card-title">Flexibilidad</h3>
-              <p className="card-text">
-                Modalidad de alquiler adaptada a las necesidades y agendas de tu negocio.
-              </p>
-            </div>
 
-            <div className="card">
-              <div className="card-icon">
-                <Check size={28} />
+              <div className="alquiler-card">
+                <div className="card-icon">
+                  <Clock size={26} />
+                </div>
+                <div>
+                  <h3 className="card-title" style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Flexibilidad</h3>
+                  <p className="card-text" style={{ fontSize: '0.95rem', margin: 0 }}>
+                    Modalidad de alquiler adaptada a las necesidades y agendas de tu negocio.
+                  </p>
+                </div>
               </div>
-              <h3 className="card-title">Soporte Técnico</h3>
-              <p className="card-text">
-                Brindamos asesoramiento técnico y asistencia para asegurar el óptimo funcionamiento del equipo.
-              </p>
-            </div>
-          </div>
 
-          <div style={{ marginTop: '50px', textAlign: 'center' }}>
-            <a 
-              href="https://wa.me/5493434043513?text=Hola%20Bodytech!%20Quiero%20recibir%20información%20sobre%20el%20Alquiler%20de%20los%20Equipos%20Crystal%203D" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="btn btn-primary"
-            >
-              Consultar jornadas de alquiler
-            </a>
+              <div className="alquiler-card">
+                <div className="card-icon">
+                  <Check size={26} />
+                </div>
+                <div>
+                  <h3 className="card-title" style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Soporte Técnico</h3>
+                  <p className="card-text" style={{ fontSize: '0.95rem', margin: 0 }}>
+                    Brindamos asesoramiento técnico y asistencia para asegurar el óptimo funcionamiento del equipo.
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ marginTop: '10px' }}>
+                <a 
+                  href="https://wa.me/5493434043513?text=Hola%20Bodytech!%20Quiero%20recibir%20información%20sobre%20el%20Alquiler%20de%20los%20Equipos%20Crystal%203D" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn btn-primary"
+                  style={{ width: '100%', textAlign: 'center', justifyContent: 'center' }}
+                >
+                  Consultar jornadas de alquiler
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
