@@ -9,8 +9,8 @@ export const siteConfig = {
   // ─── IDENTIDAD DEL NEGOCIO ────────────────────────────
   businessName: "Bodytech Paraná",
   tagline: "Depilación Láser Definitiva & Estética Integral",
-  description: "Centro especializado en depilación láser definitiva Crystal 3D de Body Health y rejuvenecimiento facial en Paraná, Entre Ríos. Operadoras certificadas y tecnología indolora.",
-  seoDescription: "Centro de depilación definitiva Crystal 3D, rejuvenecimiento facial y alquiler de equipos láser en Paraná, Entre Ríos. Operadoras certificadas y tecnología indolora.",
+  description: "Centro especializado en depilación láser definitiva Crystal 3D de Body Health y rejuvenecimiento facial en Paraná. Operadoras certificadas y tecnología indolora.",
+  seoDescription: "Centro de depilación definitiva Crystal 3D, rejuvenecimiento facial y alquiler de equipos láser en Paraná. Operadoras certificadas y tecnología indolora.",
   keywords: "depilación definitiva paraná, depilacion definitiva parana, depilacion laser parana, crystal 3d parana, bodytech parana, rejuvenecimiento facial parana, alquiler laser crystal 3d, estetica parana",
 
   // ─── CONFIGURACIÓN DE URL Y HOSTING ────────────────────

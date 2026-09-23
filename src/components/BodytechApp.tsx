@@ -225,7 +225,7 @@ export default function BodytechApp() {
           <div className="section-header">
             <h2 className="section-title">Depilación Láser Crystal 3D en Paraná</h2>
             <p>
-              Trabajamos con equipamiento original <strong>Body Health Crystal 3D</strong>, la tecnología de depilación definitiva más avanzada y elegida en Paraná y Entre Ríos.
+              Trabajamos con equipamiento original <strong>Body Health Crystal 3D</strong>, la tecnología de depilación definitiva más avanzada y elegida en Paraná.
             </p>
           </div>
 
@@ -335,7 +335,7 @@ export default function BodytechApp() {
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">Alquiler de Equipos Láser en Paraná</h2>
-            <p>Alquiler de equipos de depilación definitiva Crystal 3D por jornada para consultorios, centros de estética y profesionales en Paraná y Entre Ríos.</p>
+            <p>Alquiler de equipos de depilación definitiva Crystal 3D por jornada para consultorios, centros de estética y profesionales en Paraná.</p>
           </div>
 
           <div className="alquiler-grid">
