@@ -1012,22 +1012,96 @@ footer {
     display: none !important; /* Hide Agendar Turno button from header on mobile screens to avoid overlap */
   }
   
-  .hero-visual {
-    display: none !important; /* Remove the hero image entirely on mobile screens for a cleaner viewport */
-  }
-  
   .hero {
-    padding: 120px 0 60px 0; /* Add top padding to balance layout with header */
+    padding: 95px 16px 40px 16px; /* Optimized padding so photo & buttons fit in mobile viewport */
+    min-height: auto;
+  }
+
+  .hero-brand-tag-new {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 6px;
   }
   
   .hero-title {
-    font-size: 2.4rem !important;
-    line-height: 1.25 !important;
+    font-size: 2.1rem !important;
+    line-height: 1.18 !important;
+    margin-bottom: 12px;
   }
   
   .hero-subtitle {
-    font-size: 0.95rem;
-    margin: 20px 0 30px 0;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin: 0 auto 20px auto;
+    max-width: 420px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .hero-actions .btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .hero-visual {
+    display: flex !important;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .hero-image-wrapper {
+    max-width: 310px;
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 36px 14px 36px 14px;
+    border: 3px solid var(--color-white);
+    box-shadow: 0 12px 30px rgba(60, 53, 53, 0.12);
+  }
+
+  .hero-image {
+    object-position: center 60%;
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    left: auto;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    gap: 8px;
+    box-shadow: 0 6px 18px rgba(60, 53, 53, 0.14);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(4px);
+  }
+
+  .hero-badge .card-icon {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px;
+  }
+
+  .hero-badge .card-icon svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .hero-badge-title {
+    font-size: 0.78rem;
+  }
+
+  .hero-badge p {
+    font-size: 0.65rem !important;
   }
 
   .decor-bg {
@@ -1036,11 +1110,5 @@ footer {
 
   .card {
     padding: 25px 20px; /* Sane paddings for smaller mobile grids */
-  }
-
-  .hero-brand-tag-new {
-    text-align: center;
-    font-size: 1.35rem;
-    margin-bottom: 8px;
   }
 }

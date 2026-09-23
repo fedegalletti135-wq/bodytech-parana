@@ -157,7 +157,7 @@ export default function BodytechApp() {
                 <a href="https://wa.me/5493434043513" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                   Quiero reservar mi turno
                 </a>
-                <a href="#laser" className="btn btn-outline">
+                <a href="#alquiler" className="btn btn-outline">
                   Ver Tecnología
                 </a>
               </div>
