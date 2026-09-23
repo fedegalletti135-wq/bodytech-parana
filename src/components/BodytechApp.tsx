@@ -596,8 +596,17 @@ export default function BodytechApp() {
 
         <div className="footer-copy">
           <p>© {new Date().getFullYear()} Bodytech Paraná. Todos los derechos reservados.</p>
-          <p style={{ marginTop: '10px', fontSize: '0.75rem', color: '#686060' }}>
-            Desarrollado con estética de alta gama para centros médicos y de bienestar.
+          <p className="footer-credits">
+            Desarrollado con estética de alta gama para centros médicos y de bienestar.{' '}
+            <a 
+              href="https://viomo.com.ar" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="footer-agency-link"
+              title="Viomo Agencia - Diseño y Desarrollo Web"
+            >
+              Desarrollado por Viomo Agencia
+            </a>
           </p>
         </div>
       </footer>

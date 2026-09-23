@@ -878,6 +878,25 @@ footer {
   padding-top: 30px;
 }
 
+.footer-credits {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: #756d6d;
+  line-height: 1.6;
+}
+
+.footer-agency-link {
+  color: #948c8c;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+.footer-agency-link:hover {
+  color: var(--color-primary-light);
+  border-bottom-color: var(--color-primary-light);
+}
+
 /* Responsive Menu Hamburger icon for Mobile (simulated via standard React state) */
 .mobile-menu-btn {
   display: none;
