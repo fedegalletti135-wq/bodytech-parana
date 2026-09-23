@@ -9,40 +9,49 @@ export const siteConfig = {
   // ─── IDENTIDAD DEL NEGOCIO ────────────────────────────
   businessName: "Bodytech Paraná",
   tagline: "Depilación Láser Definitiva & Estética Integral",
-  description: "Brindamos un servicio de excelencia, con operadoras certificadas y con amplia experiencia. Utilizamos tecnología de triple longitud de onda, con equipamiento original Crystal 3D de Body Health y de lo más avanzado en el mercado láser.",
-  seoDescription: "Centro de depilación láser definitiva Crystal 3D, rejuvenecimiento cutáneo y alquiler de equipos en Paraná, Entre Ríos. Operadoras certificadas y tecnología indolora.",
-  keywords: "depilacion definitiva parana, depilacion laser parana, crystal 3d parana, bodytech parana, rejuvenecimiento facial parana, estetica parana, alquiler laser crystal 3d",
+  description: "Centro especializado en depilación láser definitiva Crystal 3D de Body Health y rejuvenecimiento facial en Paraná, Entre Ríos. Operadoras certificadas y tecnología indolora.",
+  seoDescription: "Centro de depilación definitiva Crystal 3D, rejuvenecimiento facial y alquiler de equipos láser en Paraná, Entre Ríos. Operadoras certificadas y tecnología indolora.",
+  keywords: "depilación definitiva paraná, depilacion definitiva parana, depilacion laser parana, crystal 3d parana, bodytech parana, rejuvenecimiento facial parana, alquiler laser crystal 3d, estetica parana",
 
   // ─── CONFIGURACIÓN DE URL Y HOSTING ────────────────────
-  siteUrl: "https://bodytechparana.pages.dev",
+  siteUrl: "https://bodytech.com.ar",
   cloudflareProjectName: "bodytech-parana",
 
   // ─── CONTACTO & WHATSAPP ──────────────────────────────
   phone: "+54 9 343 404-3513",
+  phoneRaw: "+5493434043513",
   whatsappNumber: "5493434043513",
-  whatsappMessage: "Hola Bodytech! Quisiera consultar y reservar un turno 🌸",
-  email: "contacto@bodytechparana.com",
+  whatsappMessage: "Hola Bodytech! Quisiera consultar y reservar un turno en Paraná 🌸",
+  email: "contacto@bodytech.com.ar",
   
-  // ─── SEDES & UBICACIONES ──────────────────────────────
+  // ─── SEDES & UBICACIONES EXACTAS ──────────────────────
   sedes: [
     {
-      name: "Sede Noreste",
-      address: "Soler 3026, Paraná, Entre Ríos",
-      note: "Atención con turno previo",
-      mapsQuery: "Soler+3026+Parana+Entre+Rios",
-    },
-    {
+      id: "sede-centro",
       name: "Sede Centro (Pránika)",
+      street: "España 257",
       address: "España 257, Paraná, Entre Ríos",
       note: "Atención en @pranika_saludintegral",
-      instagram: "https://instagram.com/pranika_saludintegral",
-      mapsQuery: "España+257+Parana+Entre+Rios",
+      instagram: "https://www.instagram.com/pranika_saludintegral/",
+      mapsUrl: "https://maps.google.com/?q=España+257+Parana+Entre+Rios",
+      latitude: -31.733182,
+      longitude: -60.529815,
+    },
+    {
+      id: "sede-noreste",
+      name: "Sede Noreste",
+      street: "Soler 3026",
+      address: "Soler 3026, Paraná, Entre Ríos",
+      note: "Atención con turno previo",
+      mapsUrl: "https://maps.google.com/?q=Soler+3026+Parana+Entre+Rios",
+      latitude: -31.719643,
+      longitude: -60.510227,
     },
   ],
 
   // ─── COORDENADAS PARA SCHEMA & MAPA ───────────────────
   address: {
-    street: "España 257 / Soler 3026",
+    street: "España 257",
     city: "Paraná",
     province: "Entre Ríos",
     postalCode: "E3100",
@@ -122,18 +131,19 @@ export const siteConfig = {
     { name: "Club Atlético Talleres", type: "Socio / Deportista", discount: "20% OFF" },
   ],
 
-  // ─── REDES SOCIALES OFICIALES ─────────────────────────
+  // ─── REDES SOCIALES OFICIALES (URLs Canónicas Limpias) ──
   social: {
-    instagram: "https://www.instagram.com/bodytech.parana/?hl=es-la",
-    facebook: "https://www.facebook.com/profile.php?id=100076218212694&locale=es_LA#",
-    instagramPranika: "https://instagram.com/pranika_saludintegral",
+    instagram: "https://www.instagram.com/bodytech.parana/",
+    facebook: "https://www.facebook.com/profile.php?id=100076218212694",
+    instagramPranika: "https://www.instagram.com/pranika_saludintegral/",
   },
 
   // ─── IMÁGENES & RECURSOS ──────────────────────────────
   images: {
-    hero: "/hero_skincare.png",
-    rejuvenecimiento: "/rejuve_skincare.png",
-    ogImage: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&h=630&q=80",
+    hero: "/hero_depilacion_piernas.png",
+    rejuvenecimiento: "/rejuvenecimiento_facial.png",
+    alquiler: "/equipo_crystal3d.png",
+    ogImage: "https://bodytech.com.ar/hero_depilacion_piernas.png",
   },
 
   // ─── CONFIGURACIÓN DE ESTILO ──────────────────────────

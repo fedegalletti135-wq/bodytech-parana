@@ -1,0 +1,16 @@
+﻿{
+  "name": "Bodytech Paraná",
+  "short_name": "Bodytech",
+  "description": "Depilación Láser Definitiva & Estética Integral en Paraná",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FCF9F6",
+  "theme_color": "#B77D7D",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

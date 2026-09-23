@@ -17,71 +17,129 @@ const {
 const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).href;
 const whatsappUrl = `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNumber}&text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
 
-// Schema.org optimizado para BeautySalon y HealthAndBeautyBusiness
+// Schema.org optimizado con @graph multisede para Paraná
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": ["BeautySalon", "HealthAndBeautyBusiness", "LocalBusiness"],
-  name: siteConfig.businessName,
-  description: siteConfig.seoDescription,
-  image: siteConfig.images.ogImage,
-  priceRange: "$$",
-  telephone: siteConfig.phone,
-  hasMap: siteConfig.address.googleMapsUrl,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: siteConfig.address.street,
-    addressLocality: siteConfig.address.city,
-    addressRegion: siteConfig.address.province,
-    postalCode: siteConfig.address.postalCode,
-    addressCountry: siteConfig.address.country,
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: siteConfig.address.latitude,
-    longitude: siteConfig.address.longitude,
-  },
-  url: siteConfig.siteUrl,
-  openingHoursSpecification: siteConfig.openingHoursSchema.map((entry) => ({
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: entry.dayOfWeek,
-    opens: entry.opens,
-    closes: entry.closes,
-  })),
-  sameAs: [
-    siteConfig.social.instagram,
-    siteConfig.social.facebook,
-    siteConfig.social.instagramPranika,
-  ].filter(Boolean),
+  "@graph": [
+    ...siteConfig.sedes.map((sede) => ({
+      "@type": ["BeautySalon", "HealthAndBeautyBusiness", "LocalBusiness"],
+      "@id": `${siteConfig.siteUrl}/#${sede.id}`,
+      name: `${siteConfig.businessName} - ${sede.name}`,
+      description: siteConfig.seoDescription,
+      url: siteConfig.siteUrl,
+      telephone: siteConfig.phone,
+      priceRange: "$$",
+      currenciesAccepted: "ARS",
+      paymentAccepted: "Efectivo, Tarjeta de Crédito, Tarjeta de Débito, Transferencia Bancaria, Mercado Pago",
+      image: `${siteConfig.siteUrl}${siteConfig.images.hero}`,
+      hasMap: sede.mapsUrl,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: sede.street,
+        addressLocality: "Paraná",
+        addressRegion: "Entre Ríos",
+        postalCode: "E3100",
+        addressCountry: "AR",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: sede.latitude,
+        longitude: sede.longitude,
+      },
+      areaServed: {
+        "@type": "City",
+        name: "Paraná",
+        sameAs: "https://es.wikipedia.org/wiki/Paran%C3%A1_(Argentina)",
+      },
+      openingHoursSpecification: siteConfig.openingHoursSchema.map((entry) => ({
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: entry.dayOfWeek,
+        opens: entry.opens,
+        closes: entry.closes,
+      })),
+      sameAs: [
+        siteConfig.social.instagram,
+        siteConfig.social.facebook,
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Servicios de Depilación Láser y Estética",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Depilación Láser Definitiva Crystal 3D",
+              description: "Tecnología original Body Health de triple longitud de onda y cabezal frío indoloro.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Rejuvenecimiento Cutáneo Facial",
+              description: "Tratamiento facial seguro y no invasivo para manchas y líneas de expresión.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Alquiler de Equipos Láser Crystal 3D por Jornada",
+              description: "Alquiler para profesionales y centros de estética con soporte técnico y capacitación.",
+            },
+          },
+        ],
+      },
+    })),
+  ],
 };
+
+const safeJsonLdString = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    {/* SEO Metas */}
+    {/* SEO Metas Esenciales */}
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={siteConfig.keywords} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    {/* Google Fonts */}
+    {/* PWA, Favicons y Theme Color */}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#B77D7D" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    {/* Preload Crítico LCP Image */}
+    <link
+      rel="preload"
+      as="image"
+      href={siteConfig.images.hero}
+      fetchpriority="high"
+    />
+
+    {/* Google Fonts Optimizado (sin fuentes huérfanas) */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
       rel="stylesheet"
     />
 
-    {/* Open Graph / Facebook */}
+    {/* Open Graph / Facebook / WhatsApp */}
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Bodytech Paraná - Depilación Definitiva Crystal 3D" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:site_name" content={siteConfig.businessName} />
@@ -91,9 +149,10 @@ const jsonLd = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Bodytech Paraná - Depilación Láser Definitiva" />
 
-    {/* Schema.org Inyección */}
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    {/* Schema.org Multisede Inyección Segura */}
+    <script type="application/ld+json" set:html={safeJsonLdString} />
 
     {/* Variable Dinámica de Acento */}
     <style set:html={`:root { --accent-color: ${siteConfig.accentColor}; --accent-color-hover: ${siteConfig.accentColorHover}; }`} />
@@ -104,10 +163,10 @@ const jsonLd = {
 
     {/* Fallback Semántico */}
     <noscript>
-      <div style="max-width: 800px; margin: 0 auto; padding: 24px; color: #d6d3d1;">
-        <h1>{siteConfig.businessName} - {siteConfig.tagline}</h1>
+      <div style="max-width: 800px; margin: 0 auto; padding: 24px; color: #3C3535;">
+        <p style="font-size: 1.5rem; font-weight: bold;">{siteConfig.businessName} - {siteConfig.tagline}</p>
         <p>{siteConfig.description}</p>
-        <p>Sedes: {siteConfig.sedes.map(s => `${s.name} (${s.address})`).join(' · ')}</p>
+        <p>Sedes en Paraná: {siteConfig.sedes.map(s => `${s.name} (${s.address})`).join(' · ')}</p>
         <p><a href={whatsappUrl}>Contactar por WhatsApp: {siteConfig.phone}</a></p>
       </div>
     </noscript>

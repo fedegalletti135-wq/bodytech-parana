@@ -16,13 +16,15 @@ import {
 export default function BodytechApp() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Contact Form State
+  // Contact Form State with Honeypot & Validation
   const [formData, setFormData] = useState({
     nombre: '',
     whatsapp: '',
     servicio: 'laser',
-    mensaje: ''
+    mensaje: '',
+    _gotcha: '' // Anti-bot honeypot
   });
+  const [errorMsg, setErrorMsg] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   // Benefits list from the Instagram post (convenios)
@@ -43,17 +45,45 @@ export default function BodytechApp() {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg('');
+
+    // If bot filled the honeypot, reject silently
+    if (formData._gotcha) {
+      return;
+    }
+
+    const nombreLimpio = formData.nombre.trim().slice(0, 80);
+    const mensajeLimpio = formData.mensaje.trim().slice(0, 500);
+    const whatsappLimpio = formData.whatsapp.replace(/[^\d+]/g, '').slice(0, 20);
+
+    if (whatsappLimpio.length < 8) {
+      setErrorMsg('Por favor ingresá un número de WhatsApp válido (mínimo 8 dígitos).');
+      return;
+    }
+
+    const servicioNombre = 
+      formData.servicio === 'laser' 
+        ? 'Depilación Láser Definitiva' 
+        : formData.servicio === 'rejuvenecimiento' 
+          ? 'Rejuvenecimiento Cutáneo Facial' 
+          : 'Alquiler de Equipos';
+
+    const text = `Hola Bodytech! Mi nombre es ${nombreLimpio}. Consulta por: ${servicioNombre}. Mi WhatsApp: ${whatsappLimpio}.${mensajeLimpio ? ` Consulta: ${mensajeLimpio}` : ''}`;
+    const whatsappUrl = `https://wa.me/5493434043513?text=${encodeURIComponent(text)}`;
+
     setSubmitted(true);
-    const text = `Hola Bodytech! Mi nombre es ${formData.nombre}. Estoy interesada/o en el servicio de: ${
-      formData.servicio === 'laser' ? 'Depilación Láser' : formData.servicio === 'rejuvenecimiento' ? 'Rejuvenecimiento Cutáneo' : 'Alquiler de Equipos'
-    }. Mi WhatsApp: ${formData.whatsapp}. Consulta: ${formData.mensaje}`;
-    const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/5493434043513?text=${encodedText}`;
-    
+
+    // Synchronous execution avoids popup blocker in Safari/iOS and mobile browsers
+    const newWin = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    if (newWin) {
+      newWin.opener = null;
+    } else {
+      window.location.href = whatsappUrl;
+    }
+
     setTimeout(() => {
-      window.open(whatsappUrl, '_blank');
       setSubmitted(false);
-    }, 1200);
+    }, 2000);
   };
 
   return (
@@ -144,13 +174,13 @@ export default function BodytechApp() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-content">
-              <span className="hero-brand-tag-new">Bodytech</span>
+              <span className="hero-brand-tag-new">Bodytech · Paraná, Entre Ríos</span>
               <h1 className="hero-title">
-                Tu piel suave <br />
-                y luminosa
+                Depilación Definitiva <br />
+                <span style={{ fontSize: '0.82em', fontWeight: 400, fontStyle: 'italic' }}>en Paraná con Crystal 3D</span>
               </h1>
               <p className="hero-subtitle">
-                Brindamos un servicio de excelencia, con operadoras certificadas y con amplia experiencia. Utilizamos tecnología de triple longitud de onda, con equipamiento original y de lo más avanzado en el mercado de la tecnología láser.
+                Centro de <strong>depilación definitiva en Paraná</strong> con tecnología original <strong>Crystal 3D de Body Health</strong>. Operadoras certificadas, triple longitud de onda y sistema de frío continuo para un tratamiento seguro, eficaz e indoloro en nuestras sedes de Paraná.
               </p>
               
               <div className="hero-actions">
@@ -166,8 +196,13 @@ export default function BodytechApp() {
               <div className="hero-image-wrapper">
                 <img 
                   src="/hero_depilacion_piernas.png" 
-                  alt="Depilación láser en piernas con tecnología Crystal 3D en Bodytech Paraná" 
-                  className="hero-image" 
+                  alt="Depilación láser definitiva en piernas con tecnología Crystal 3D en Bodytech Paraná" 
+                  className="hero-image"
+                  width="450"
+                  height="562"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
               <div className="hero-badge">
@@ -188,9 +223,9 @@ export default function BodytechApp() {
       <section id="laser" className="section-bg-alt">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">El Equipo Más Avanzado</h2>
+            <h2 className="section-title">Depilación Láser Crystal 3D en Paraná</h2>
             <p>
-              La marca de nuestro equipo es la más avanzada en tecnología estética a nivel global. Trabajamos con tecnología <strong>Body Health</strong> original, reconocida por su innovación y altos estándares de calidad.
+              Trabajamos con equipamiento original <strong>Body Health Crystal 3D</strong>, la tecnología de depilación definitiva más avanzada y elegida en Paraná y Entre Ríos.
             </p>
           </div>
 
@@ -233,9 +268,9 @@ export default function BodytechApp() {
         <div className="container">
           <div className="rejuve-grid">
             <div>
-              <h2 className="section-title">Rejuvenecimiento Cutáneo</h2>
+              <h2 className="section-title">Rejuvenecimiento Facial en Paraná</h2>
               <p style={{ marginBottom: '30px' }}>
-                Tratamiento facial diseñado para recuperar la vitalidad de la piel de forma segura y no invasiva.
+                Tratamiento facial no invasivo en Paraná diseñado para atenuar manchas, líneas de expresión y recuperar la luminosidad natural de la piel.
               </p>
               
               <div className="rejuve-list">
@@ -282,7 +317,11 @@ export default function BodytechApp() {
                 <img 
                   src="/rejuvenecimiento_facial.png" 
                   alt="Tratamiento de rejuvenecimiento cutáneo facial con antiparras protectoras en Bodytech Paraná" 
-                  className="rejuve-image" 
+                  className="rejuve-image"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
                   style={{ objectPosition: 'center 35%' }}
                 />
               </div>
@@ -295,8 +334,8 @@ export default function BodytechApp() {
       <section id="alquiler" className="section-bg-alt">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Alquiler de Equipos por Jornada</h2>
-            <p>Ofrecemos el equipamiento Crystal 3D original de Body Health para centros de estética o profesionales independientes.</p>
+            <h2 className="section-title">Alquiler de Equipos Láser en Paraná</h2>
+            <p>Alquiler de equipos de depilación definitiva Crystal 3D por jornada para consultorios, centros de estética y profesionales en Paraná y Entre Ríos.</p>
           </div>
 
           <div className="alquiler-grid">
@@ -304,8 +343,12 @@ export default function BodytechApp() {
               <div className="alquiler-circle-wrapper">
                 <img 
                   src="/equipo_crystal3d.png" 
-                  alt="Equipo original Crystal 3D Body Health disponible para alquiler en Paraná" 
-                  className="alquiler-circle-image" 
+                  alt="Alquiler de equipo láser original Crystal 3D Body Health en Paraná" 
+                  className="alquiler-circle-image"
+                  width="440"
+                  height="440"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="alquiler-badge">
@@ -383,7 +426,7 @@ export default function BodytechApp() {
               {doubledConvenios.map((item, index) => (
                 <div key={index} className="convenio-card">
                   <div className="convenio-discount">{item.discount}</div>
-                  <h3 className="convenio-name">{item.name}</h3>
+                  <p className="convenio-name" style={{ fontWeight: 600, fontSize: '1.1rem', margin: '8px 0 4px 0' }}>{item.name}</p>
                   <p className="convenio-desc">{item.type}</p>
                 </div>
               ))}
@@ -424,7 +467,16 @@ export default function BodytechApp() {
                 <MapPin className="sede-icon" />
                 <div>
                   <h4 className="sede-title">Sede Noreste</h4>
-                  <p className="sede-address">Soler 3026, Paraná, Entre Ríos</p>
+                  <a 
+                    href="https://maps.google.com/?q=Soler+3026+Parana+Entre+Rios" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="sede-address"
+                    style={{ textDecoration: 'underline', color: 'inherit' }}
+                    title="Ver Sede Noreste en Google Maps"
+                  >
+                    Soler 3026, Paraná, Entre Ríos
+                  </a>
                 </div>
               </div>
 
@@ -432,8 +484,17 @@ export default function BodytechApp() {
                 <MapPin className="sede-icon" />
                 <div>
                   <h4 className="sede-title">Sede Centro (Pránika)</h4>
-                  <p className="sede-address">España 257, Paraná, Entre Ríos</p>
-                  <a href="https://instagram.com/pranika_saludintegral" target="_blank" rel="noopener noreferrer" className="sede-instagram">
+                  <a 
+                    href="https://maps.google.com/?q=España+257+Parana+Entre+Rios" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="sede-address"
+                    style={{ textDecoration: 'underline', color: 'inherit' }}
+                    title="Ver Sede Centro en Google Maps"
+                  >
+                    España 257, Paraná, Entre Ríos
+                  </a>
+                  <a href="https://www.instagram.com/pranika_saludintegral/" target="_blank" rel="noopener noreferrer" className="sede-instagram">
                     @pranika_saludintegral
                   </a>
                 </div>
@@ -442,8 +503,14 @@ export default function BodytechApp() {
               <div className="sede-card">
                 <Clock className="sede-icon" />
                 <div>
-                  <h4 className="sede-title">Horarios de Atención</h4>
+                  <h4 className="sede-title">Horarios y Atención</h4>
                   <p className="sede-address" style={{ margin: 0 }}>Lunes a Sábado de 09:00 a 20:00 hs.</p>
+                  <a 
+                    href="tel:+5493434043513" 
+                    style={{ display: 'inline-block', marginTop: '6px', fontSize: '0.85rem', color: 'var(--color-primary)', fontWeight: 600, textDecoration: 'none' }}
+                  >
+                    Llamar al +54 9 343 404-3513
+                  </a>
                 </div>
               </div>
             </div>
@@ -454,6 +521,12 @@ export default function BodytechApp() {
                 Completá tus datos y te redirigiremos a nuestro WhatsApp para reservar tu turno.
               </p>
 
+              {errorMsg && (
+                <div style={{ color: '#b91c1c', fontSize: '0.85rem', marginBottom: '15px', padding: '10px 14px', background: '#fee2e2', borderRadius: '8px', border: '1px solid #fecaca' }}>
+                  {errorMsg}
+                </div>
+              )}
+
               {submitted ? (
                 <div style={{ textAlign: 'center', padding: '30px 0' }}>
                   <Sparkles size={48} style={{ color: 'var(--color-primary)', marginBottom: '20px' }} />
@@ -462,6 +535,18 @@ export default function BodytechApp() {
                 </div>
               ) : (
                 <form onSubmit={handleFormSubmit}>
+                  {/* Campo Honeypot Oculto para Trampa de Bots */}
+                  <div style={{ display: 'none' }} aria-hidden="true">
+                    <input 
+                      type="text" 
+                      name="_gotcha" 
+                      tabIndex={-1} 
+                      autoComplete="off" 
+                      value={formData._gotcha}
+                      onChange={(e) => setFormData({...formData, _gotcha: e.target.value})}
+                    />
+                  </div>
+
                   <div className="form-group">
                     <label className="form-label" htmlFor="nombre">Nombre Completo</label>
                     <input 
@@ -470,6 +555,7 @@ export default function BodytechApp() {
                       className="form-input" 
                       placeholder="Ej. María Pérez" 
                       required 
+                      maxLength={80}
                       value={formData.nombre}
                       onChange={(e) => setFormData({...formData, nombre: e.target.value})}
                     />
@@ -483,6 +569,9 @@ export default function BodytechApp() {
                       className="form-input" 
                       placeholder="Ej. +54 9 343 404-3513" 
                       required 
+                      maxLength={25}
+                      pattern="[\+]?[0-9\s\-]{8,20}"
+                      title="Ingresá un número telefónico válido (mínimo 8 dígitos)"
                       value={formData.whatsapp}
                       onChange={(e) => setFormData({...formData, whatsapp: e.target.value})}
                     />
@@ -497,7 +586,7 @@ export default function BodytechApp() {
                       onChange={(e) => setFormData({...formData, servicio: e.target.value})}
                     >
                       <option value="laser">Depilación Láser Definitiva</option>
-                      <option value="rejuvenecimiento">Rejuvenecimiento Láser</option>
+                      <option value="rejuvenecimiento">Rejuvenecimiento Cutáneo Facial</option>
                       <option value="alquiler">Alquiler de Equipos</option>
                     </select>
                   </div>
@@ -509,6 +598,7 @@ export default function BodytechApp() {
                       rows={3}
                       className="form-textarea" 
                       placeholder="Tu mensaje..."
+                      maxLength={500}
                       value={formData.mensaje}
                       onChange={(e) => setFormData({...formData, mensaje: e.target.value})}
                     ></textarea>
@@ -546,7 +636,7 @@ export default function BodytechApp() {
         {/* Redes Sociales Oficiales */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '25px' }}>
           <a 
-            href="https://www.instagram.com/bodytech.parana/?hl=es-la" 
+            href="https://www.instagram.com/bodytech.parana/" 
             target="_blank" 
             rel="noopener noreferrer" 
             style={{ 
@@ -566,7 +656,7 @@ export default function BodytechApp() {
             <span>@bodytech.parana</span>
           </a>
           <a 
-            href="https://www.facebook.com/profile.php?id=100076218212694&locale=es_LA#" 
+            href="https://www.facebook.com/profile.php?id=100076218212694" 
             target="_blank" 
             rel="noopener noreferrer" 
             style={{ 

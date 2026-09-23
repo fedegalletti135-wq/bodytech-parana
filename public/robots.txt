@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bodytechparana.pages.dev/sitemap-index.xml
+Sitemap: https://bodytech.com.ar/sitemap-index.xml
