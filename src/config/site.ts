@@ -63,13 +63,13 @@ export const siteConfig = {
 
   // ─── HORARIOS ─────────────────────────────────────────
   schedule: [
-    { days: "Lunes a Sábado", hours: "09:00 a 20:00 hs." },
-    { days: "Domingos", hours: "Cerrado" },
+    { days: "Lunes a Viernes", hours: "08:00 a 20:00 hs." },
+    { days: "Sábados y Domingos", hours: "Cerrado" },
   ],
   openingHoursSchema: [
     {
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      opens: "09:00",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
       closes: "20:00",
     },
   ],

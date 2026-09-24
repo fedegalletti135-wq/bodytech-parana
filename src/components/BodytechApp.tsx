@@ -486,7 +486,8 @@ export default function BodytechApp() {
                 <Clock className="sede-icon" />
                 <div>
                   <h4 className="sede-title">Horarios de Atención</h4>
-                  <p className="sede-address" style={{ margin: 0 }}>Lunes a Sábado de 09:00 a 20:00 hs.</p>
+                  <p className="sede-address" style={{ margin: 0 }}>Lunes a Viernes de 08:00 a 20:00 hs.</p>
+                  <p className="sede-address" style={{ margin: '4px 0 0', fontSize: '0.85rem' }}>Sábados y domingos: Cerrado</p>
                 </div>
               </div>
             </div>
